@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Building') {
           steps {
-                sh 'sudo pacman -S python-flask'
+                sh 'echo "votre_mot_de_passe" | sudo -S pacman -S python-flask'
           }
         }
         stage('Testing') {
