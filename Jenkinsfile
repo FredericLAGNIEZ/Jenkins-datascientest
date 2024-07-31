@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Building') {
           steps {
-                sh 'echo $SYSTEM_CREDENTIALS | sudo -S pacman -S python-flask'
+                sh 'echo $SYSTEM_CREDENTIALS | sudo pacman -S python-flask'
           }
         }
         stage('Testing') {
