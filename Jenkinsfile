@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Building') {
           steps {
-                sh 'pip install -r requirements.txt'
+                sh 'pacman -S python-flask'
           }
         }
         stage('Testing') {
