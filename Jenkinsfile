@@ -5,11 +5,12 @@ pipeline {
       DOCKER_ID = "dstdockerhub"
       DOCKER_IMAGE = "datascientestapi"
       DOCKER_TAG = "v.${BUILD_ID}.0" 
+      SYSTEM_CREDENTIALS = "belette73**" 
     }
     stages {
         stage('Building') {
           steps {
-                sh 'echo "votre_mot_de_passe" | sudo -S pacman -S python-flask'
+                sh 'echo $SYSTEM_CREDENTIALS | sudo -S pacman -S python-flask'
           }
         }
         stage('Testing') {
