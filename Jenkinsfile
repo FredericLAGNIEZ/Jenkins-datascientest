@@ -48,11 +48,9 @@ pipeline {
 		        DOCKERHUB_CREDENTIALS = credentials('docker_jenkins') 
                     }
 		    steps {
-                        sh """
-		        echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
-		        docker push $DOCKER_ID/$DOCKER_IMAGE:$DOCKER_TAG
-		        """
-                    }
+                        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		        sh 'docker push $DOCKER_ID/$DOCKER_IMAGE:$DOCKER_TAG'
+		    }
                 }
 
                 stage('Merging') {
